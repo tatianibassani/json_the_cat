@@ -7,6 +7,8 @@ const breed = params[0];
 
 const url = `https://api.thecatapi.com/v1/breeds/search?q=${breed}`;
 
+const fetchBreedDescription = function(breedName, callback) {
+
 request(url, (error, response, body) => {
     if (error) {
       console.error(`Error loading the URL ${url}: ${error.message}`);
@@ -21,4 +23,6 @@ request(url, (error, response, body) => {
     }
 
     console.log(data[0].description);
-  });
+  })
+};
+module.exports = { fetchBreedDescription };
